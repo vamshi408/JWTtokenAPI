@@ -13,7 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
+builder.Services.AddSingleton<IEmployeeRepository, EmployeelMockImplementation>();
 var key = "!@#$%^&*()!@#$%^&*()1234567890!@#$%^&*()!@#$%^&*()";
 builder.Services.AddSingleton<IJwtService>(new ImplementationIJwtService(key));
 

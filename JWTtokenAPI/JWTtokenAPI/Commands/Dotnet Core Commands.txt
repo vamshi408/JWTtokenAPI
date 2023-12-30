@@ -1,0 +1,15 @@
+Dotnet:-
+---------------
+1. dotnet new console --name Producer
+2. cd Producer
+3. dotnet add package RabbitMQ.Client
+4. dotnet restore
+
+
+Migration Commands
+---------------------
+need Microsoft.EntityFrameworkCore.Tools package to perform migration model first approach
+1. Add-Migration "Initial"
+2. Update-Database
+If you get any error while using above command saying culture Invariant then set it to fasle in project file.
+ <InvariantGlobalization>false</InvariantGlobalization>

@@ -3,6 +3,7 @@ using JWTtokenAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IEmployeeRepository, EmployeelMockImplementation>();
+
+builder.Services.AddScoped<IDepartment, DepartmentSQLImplementation>();
+builder.Services.AddDbContextPool<DepartmentContext>(options => {
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DepDBCon"));
+});
+
+
+
 var key = "!@#$%^&*()!@#$%^&*()1234567890!@#$%^&*()!@#$%^&*()";
 builder.Services.AddSingleton<IJwtService>(new ImplementationIJwtService(key));
 

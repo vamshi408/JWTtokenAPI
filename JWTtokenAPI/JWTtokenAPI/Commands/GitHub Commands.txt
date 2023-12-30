@@ -1,0 +1,15 @@
+git config --global user.email "****.*******@gmail.com"
+git config --global user.name "********"
+git config --global user.password "********"
+
+
+git remote add origin RepositoryPathFromGitHub
+
+
+git pull origin main
+
+git branch NewBranchName
+git checkout NewBranchNameWhichIsCreated
+git add .
+git commit -m "Message"
+git push orign main
